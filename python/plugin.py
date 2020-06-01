@@ -17,8 +17,8 @@ BASE_ACTIVITY = {
     'assets': {
         'large_text': 'Vim',
         'large_image': 'vim_logo',
-        'small_text': 'The one true editor',
-        'small_image': 'vim_logo'
+        'small_text': 'Best editeur :)',
+        'small_image': 'https://github.com/vbe0201/vimdiscord'
      }
  }
 
@@ -86,16 +86,16 @@ def update_presence(connection):
     if not filename or not cwd:
         return
     
-    activity['details'] = 'Editing a .' + get_extension() +' file'
-    activity['assets']['small_text'] = 'Working on project ' + cwd
+    activity['details'] = 'Fichier :' + cwd
+    activity['assets']['small_text'] = 'https://github.com/vbe0201/vimdiscord'
 
     extension = get_extension()
     if extension and extension in thumbnails.keys():
         activity['assets']['large_image'] = extension
-        activity['assets']['large_text'] = 'Editing a {} file'.format(thumbnails[extension])
-        activity['details'] = 'Editing a {} file'.format(thumbnails[extension])
+        activity['assets']['large_text'] = 'Langage : {}'.format(thumbnails[extension])
+        activity['details'] = 'Fichier : {}'.format(cwd)
     else:
-        activity['details'] = 'Editing a .{} file'.format(extension)
+        activity['details'] = 'Fichier : {}'.format(cwd)
         activity['assets']['large_image'] = 'unknown'
 
     try:
